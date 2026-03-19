@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@300;400;600&family=Bangers&display=swap');
+
+:root {
+    --primary-gold: #c6a361;
+    --gold-glow: rgba(198, 163, 97, 0.6);
+    --dark-bg: #0a0a0a;
+    --card-bg: rgba(30, 30, 30, 0.85);
+    --font-title: 'Montserrat', sans-serif;
+    --font-body: 'Poppins', sans-serif;
+    --font-fete: 'Bangers', cursive;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--dark-bg);
+    color: #fff;
+    margin: 0;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* --- RIDEAU D'ENTRÉE --- */
+#overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: #000; display: flex; justify-content: center; align-items: center;
+    z-index: 10000; transition: opacity 0.8s ease, visibility 0.8s;
+}
+#overlay.hidden { opacity: 0; visibility: hidden; }
+.overlay-content p { letter-spacing: 5px; color: var(--primary-gold); margin-bottom: 30px; }
+#enter-btn {
+    background: transparent; border: 2px solid var(--primary-gold); color: var(--primary-gold);
+    padding: 15px 40px; font-family: var(--font-title); cursor: pointer; transition: 0.3s;
+}
+#enter-btn:hover { background: var(--primary-gold); color: #000; box-shadow: 0 0 20px var(--gold-glow); }
+
+/* --- HEADER --- */
+header {
+    height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('IMG_0049-1c.jpg') no-repeat center/cover;
+}
+h1 .prenom { font-family: var(--font-fete); font-size: 6rem; color: #fff; text-shadow: 0 0 20px var(--gold-glow); }
+h1 .age { font-family: var(--font-title); font-size: 5rem; color: var(--primary-gold); margin-left: -15px; }
+
+/* --- ZONE DE FÊTE --- */
+.party-zone { position: relative; background: #050505; z-index: 1; }
+.fete-elements {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+    background-image: url('boule-disco.png'), url('champagne-explosif.png'), url('faisceaux-lumieres.png');
+    background-position: top 10% right 5%, bottom 5% left 5%, center;
+    background-size: 15% auto, 20% auto, cover; background-repeat: no-repeat;
+    opacity: 0.8; filter: drop-shadow(0 0 15px var(--gold-glow));
+}
+.party-zone:hover .fete-elements { animation: secoueMoi 0.5s infinite; }
+
+/* --- COMPTE À REBOURS & CARTES --- */
+#countdown-container { padding: 100px 20px; }
+#countdown { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+.time-box { 
+    background: var(--card-bg); padding: 30px; border-radius: 15px; min-width: 120px;
+    border: 1px solid var(--gold-glow); backdrop-filter: blur(5px);
+}
+.time-box span { font-size: 4rem; color: var(--primary-gold); animation: pulseGold 2s infinite; }
+.details { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; padding: 100px 20px; max-width: 1100px; margin: 0 auto; }
+.card { background: var(--card-bg); padding: 40px; border-radius: 20px; backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.1); }
+
+/* --- CONFETTIS (TOUTE LA PAGE) --- */
+.confetti-particle {
+    position: fixed; top: -20px; z-index: 9999; pointer-events: none;
+    animation: fall linear infinite;
+}
+
+/* --- RSVP & MUSIQUE --- */
+#rsvp { padding: 100px 20px; background: #000; border-top: 1px solid var(--gold-glow); }
+.btn-rsvp {
+    display: inline-block; background: linear-gradient(45deg, #c6a361, #fff, #c6a361);
+    padding: 20px 50px; border-radius: 50px; color: #000; font-weight: 800; text-decoration: none;
+    animation: shineGlow 3s infinite;
+}
+.music-btn { position: fixed; bottom: 20px; right: 20px; z-index: 10001; background: rgba(0,0,0,0.7); color: #fff; border: 1px solid #fff; padding: 10px 20px; border-radius: 30px; cursor: pointer; }
+
+/* --- ANIMATIONS --- */
+@keyframes fall { to { transform: translateY(105vh) rotate(720deg); } }
+@keyframes secoueMoi { 
+    0%, 100% { transform: translate(0,0); } 
+    25% { transform: translate(2px, -2px); } 
+    75% { transform: translate(-2px, 2px); } 
+}
+@keyframes pulseGold { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+@keyframes shineGlow { 0% { background-position: 0%; } 100% { background-position: 200%; } }
+
+@media (max-width: 768px) { h1 .prenom { font-size: 4rem; } h1 .age { font-size: 3rem; } }

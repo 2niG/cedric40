@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Les 40 ans de Cédric</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <div id="overlay">
+        <div class="overlay-content">
+            <h2 class="prenom">CÉDRIC 40</h2>
+            <p>L'invitation exclusive</p>
+            <button id="enter-btn">DÉCOUVRIR L'INVITATION</button>
+        </div>
+    </div>
+
+    <header>
+        <h1><span class="prenom">CÉDRIC</span> <span class="age">40</span></h1>
+        <p class="subtitle">Une décennie de plus, ça se fête !</p>
+    </header>
+
+    <div class="party-zone">
+        
+        <div class="fete-elements"></div>
+
+        <section id="countdown-container">
+            <h2>Le grand saut dans la quarantaine dans...</h2>
+            <div id="countdown">
+                <div class="time-box">
+                    <span id="days">00</span>
+                    <p>Jours</p>
+                </div>
+                <div class="time-box">
+                    <span id="hours">00</span>
+                    <p>Heures</p>
+                </div>
+                <div class="time-box">
+                    <span id="minutes">00</span>
+                    <p>Min</p>
+                </div>
+                <div class="time-box">
+                    <span id="seconds">00</span>
+                    <p>Sec</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="details">
+            <div class="card">
+                <h2>Quand ?</h2>
+                <p>Samedi 20 Juin 2026<br />À partir de 19h00</p>
+            </div>
+            <div class="card">
+                <h2>Où ?</h2>
+                <p>La Grange des Amis<br />123 rue de la Fête, Paris</p>
+            </div>
+        </section>
+
+    </div>
+
+    <section id="rsvp">
+        <h2>Serez-vous des nôtres ?</h2>
+        <p>Merci de préciser le nombre d'adultes et d'enfants via le formulaire ci-dessous.</p>
+        <p><em>(Réponse souhaitée avant le 1er juin)</em></p>
+        <a href="https://forms.gle/WhZ9JNAK6UGndsoy5" target="_blank" class="btn-rsvp">
+            INDIQUER NOTRE PRÉSENCE
+        </a>
+    </section>
+
+    <audio id="musique-fete" loop>
+        <source src="musique-fete.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="pop-sound">
+        <source src="pop.mp3" type="audio/mpeg">
+    </audio>
+
+    <button id="music-control" class="music-btn pause">
+        <span class="icon-music">🎵</span>
+        <span class="music-text">PLAY AMBIANCE</span>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
