@@ -1,72 +1,100 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cédric 40 & Manon 10 - Double Anniversaire</title>
+    <title>Cédric 40 & Manon 10</title>
     <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-
+  </head>
+  <body>
     <div id="overlay">
-        <div class="overlay-content">
-            <h2 class="prenom fete-prenom">CÉDRIC 40</h2>
-            <h2 class="prenom fete-prenom">& MANON 10</h2>
-            <p>Une double décennie de bonheur à fêter !</p>
-            <button id="enter-btn">DÉCOUVRIR L'INVITATION</button>
-        </div>
+      <div class="overlay-content">
+        <h2 class="fete-prenom">CÉDRIC 40</h2>
+        <h2 class="fete-prenom">& MANON 10</h2>
+        <p class="overlay-sub">Une double décennie à fêter !</p>
+        <button id="enter-btn">DÉCOUVRIR L'INVITATION</button>
+      </div>
     </div>
 
     <div id="main-invitation" class="invitation-container hidden">
-        
-        <img src="invitation-image.png" alt="Invitation Cédric 40 Manon 10" class="invitation-img" />
+      <div class="bandeau-anniversaire" style="display: none">
+        <span>ANNIVERSAIRE</span>
+      </div>
 
-        <section id="countdown-reserve-section">
-            
-            <div id="countdown-container">
-                <h2>Le grand saut dans...</h2>
-                <div id="countdown">
-                    <div class="time-box">
-                        <span id="days">00</span>
-                        <p>Jours</p>
-                    </div>
-                    <div class="time-box">
-                        <span id="hours">00</span>
-                        <p>Heures</p>
-                    </div>
-                    <div class="time-box">
-                        <span id="minutes">00</span>
-                        <p>Min</p>
-                    </div>
-                    <div class="time-box">
-                        <span id="seconds">00</span>
-                        <p>Sec</p>
-                    </div>
-                </div>
+      <div class="titres-invitation" style="display: none">
+        <h2 class="ligne-titre">
+          <span class="chiffre-bleu">40 ANS</span>
+          <span class="nom-rouge">CEDRIC</span>
+        </h2>
+        <h2 class="ligne-titre">
+          <span class="chiffre-bleu">10 ANS</span>
+          <span class="nom-rouge">MANON</span>
+        </h2>
+      </div>
+
+      <img src="invitation-image.png" alt="Invitation" class="invitation-img" />
+
+      <div class="bandeau-bois" style="display: none">
+        <div class="deco-icon">
+          <img src="haltere.png" alt="Haltère" class="haltere-photo" />
+        </div>
+
+        <div class="info-texte">
+          <p class="date-fete">SAMEDI 20 JUIN 2026</p>
+          <p class="lieu-fete">À L'OSERAIE DES MARTEL À SAINT-PIAT</p>
+          <p class="heure-fete">À PARTIR DE 19H00</p>
+        </div>
+
+        <div class="deco-icon">
+          <img src="switch.png" alt="Nintendo Switch" class="switch-photo" />
+        </div>
+      </div>
+
+      <section id="countdown-reserve-section">
+        <div id="countdown-container">
+          <h2>Le grand saut dans...</h2>
+          <div id="countdown">
+            <div class="time-box">
+              <span id="days">00</span>
+              <p>Jours</p>
             </div>
-
-            <div id="reservation-container">
-                <h2>Avez-vous bloqué la date ?</h2>
-                <p>Confirmez votre présence via le bouton ci-dessous.</p>
-                <a href="https://forms.gle/WhZ9JNAK6UGndsoy5" target="_blank" class="btn-rsvp">
-                    INDIQUER NOTRE PRÉSENCE
-                </a>
+            <div class="time-box">
+              <span id="hours">00</span>
+              <p>Heures</p>
             </div>
+            <div class="time-box">
+              <span id="minutes">00</span>
+              <p>Min</p>
+            </div>
+            <div class="time-box">
+              <span id="seconds">00</span>
+              <p>Sec</p>
+            </div>
+          </div>
+        </div>
 
-        </section>
-
+        <div id="reservation-container">
+          <h2>Serez-vous des nôtres ?</h2>
+          <a
+            href="https://forms.gle/WhZ9JNAK6UGndsoy5"
+            target="_blank"
+            class="btn-rsvp"
+          >
+            INDIQUER NOTRE PRÉSENCE
+          </a>
+        </div>
+      </section>
     </div>
 
     <audio id="musique-fete" loop>
-        <source src="musique-fete.mp3" type="audio/mpeg">
-        Votre navigateur ne supporte pas l'élément audio.
+      <source src="musique-fete.mp3" type="audio/mpeg" />
     </audio>
 
     <button id="music-control" class="music-btn pause hidden">
-        <span class="icon-music">🎵</span>
-        <span class="music-text">PAUSE AMBIANCE</span>
+      <span class="icon-music">🎵</span>
+      <span class="music-text">PAUSE AMBIANCE</span>
     </button>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
