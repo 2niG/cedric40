@@ -1,17 +1,22 @@
 /* =========================================
-   1. POLICES ET BASES
+   1. POLICES ET BASES (Mises à jour)
    ========================================= */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@300;400;600&display=swap');
+/* Importation : Ajout de la police "Bangers" pour le titre fête */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@300;400;600&family=Bangers&display=swap');
 
 :root {
-    --primary-gold: #c6a361;
+    --primary-gold: #c6a361; /* Un or chic */
     --gold-glow: rgba(198, 163, 97, 0.6);
     --dark-bg: #0a0a0a;
     --card-bg: rgba(30, 30, 30, 0.85);
     --text-main: #ffffff;
     --text-muted: #dcdcdc;
+    
+    /* Définition des polices */
     --font-title: 'Montserrat', sans-serif;
     --font-body: 'Poppins', sans-serif;
+    /* NOUVELLE POLICE FÊTE */
+    --font-fete: 'Bangers', cursive;
 }
 
 * { box-sizing: border-box; }
@@ -24,7 +29,7 @@ body {
     margin: 0;
     line-height: 1.6;
     overflow-x: hidden;
-    position: relative; /* Nécessaire pour les confettis */
+    position: relative;
 }
 
 /* =========================================
@@ -40,7 +45,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 10000; /* Par-dessus tout */
+    z-index: 10000;
     transition: opacity 1s ease, visibility 1s;
 }
 
@@ -54,20 +59,35 @@ body {
     animation: fadeIn 1.5s ease;
 }
 
+/* CHANGEMENT ICI : Police Bangers et remplissage couleur */
 .overlay-content .fete-prenom {
-    font-family: var(--font-title);
-    font-weight: 800;
-    font-size: 5rem;
-    color: transparent;
-    -webkit-text-stroke: 1px var(--text-main);
+    font-family: 'Bangers', cursive; /* Nouvelle police fete */
+    font-weight: normal;
+    font-size: 6rem; /* Un peu plus grand pour l'impact */
+    line-height: 1.1;
+    margin: 0;
+    
+    /* Effet de remplissage dégradé Or */
+    background: linear-gradient(to bottom, #fff 20%, #c6a361 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    /* Ombre portée pour donner du volume */
+    text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.5), 0 0 30px var(--gold-glow);
     display: block;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .overlay-content p {
-    color: var(--primary-gold);
-    letter-spacing: 5px;
+    color: #fff;
+    font-family: var(--font-body);
+    font-weight: 300;
+    letter-spacing: 4px;
     text-transform: uppercase;
+    margin-top: 10px;
     margin-bottom: 40px;
+    opacity: 0.8;
 }
 
 #enter-btn {
@@ -80,181 +100,17 @@ body {
     letter-spacing: 3px;
     cursor: pointer;
     transition: all 0.3s ease;
+    border-radius: 5px; /* Optionnel : bords légèrement arrondis */
 }
 
 #enter-btn:hover {
     background: var(--primary-gold);
     color: #000;
     box-shadow: 0 0 30px var(--gold-glow);
+    transform: scale(1.05);
 }
 
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
-}
-
-/* =========================================
-   3. ZONE DE L'INVITATION PRINCIPALE
-   ========================================= */
-.invitation-container {
-    max-width: 1000px; /* Adaptez à la taille de votre image */
-    margin: 20px auto;
-    background-color: transparent;
-    transition: opacity 1s ease;
-    opacity: 1;
-    z-index: 1;
-}
-
-.invitation-container.hidden {
-    opacity: 0;
-    visibility: hidden;
-}
-
-.invitation-img {
-    width: 100%;
-    height: auto;
-    border-radius: 20px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.8);
-    display: block;
-}
-
-/* =========================================
-   ZONE DYNAMIQUE : COMPTEUR & RÉSERVATION
-   ========================================= */
-#countdown-reserve-section {
-    padding: 60px 20px;
-}
-
-#countdown-reserve-section h2 {
-    font-family: var(--font-title);
-    font-weight: 700;
-    color: var(--primary-gold);
-    text-transform: uppercase;
-    margin-bottom: 40px;
-}
-
-#countdown-container h2 {
-    color: #fff;
-    letter-spacing: 3px;
-    text-shadow: 0 0 10px var(--gold-glow);
-}
-
-/* COMPTE À REBOURS */
-#countdown {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    flex-wrap: wrap;
-    margin-bottom: 80px;
-}
-
-.time-box {
-    background: var(--card-bg);
-    padding: 30px 25px;
-    border-radius: 15px;
-    min-width: 130px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.8), 0 0 10px var(--gold-glow);
-    border: 1px solid rgba(198, 163, 97, 0.3);
-}
-
-.time-box span {
-    font-family: var(--font-title);
-    font-size: 4rem;
-    font-weight: 800;
-    display: block;
-    color: var(--primary-gold);
-    text-shadow: 0 0 15px var(--primary-gold);
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); opacity: 0.8; }
-    100% { transform: scale(1); }
-}
-
-.time-box p {
-    margin: 10px 0 0;
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    text-transform: uppercase;
-}
-
-/* BOUTON RÉSERVATION (Bas de page) */
-#reservation-container p {
-    color: var(--text-muted);
-    max-width: 600px;
-    margin: 0 auto 40px;
-}
-
-.btn-rsvp {
-    display: inline-block;
-    background-color: var(--primary-gold);
-    color: #fff;
-    padding: 20px 50px;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    box-shadow: 0 10px 30px rgba(198, 163, 97, 0.4);
-    transition: all 0.3s ease;
-}
-
-.btn-rsvp:hover {
-    background-color: #fff;
-    color: var(--dark-bg);
-    transform: scale(1.05) translateY(-2px);
-    box-shadow: 0 15px 40px rgba(255,255,255,0.2);
-}
-
-/* =========================================
-   4. LES CONFETTIS (Toute la page)
-   ========================================= */
-.confetti-particle {
-    position: fixed; /* Partout sur l'écran */
-    top: -20px;
-    border-radius: 2px;
-    opacity: 0.8;
-    z-index: 9999; /* Devant l'invitation principale */
-    pointer-events: none; /* Ne gêne pas le clic */
-    animation: fall linear infinite;
-}
-
-@keyframes fall {
-    to {
-        transform: translateY(105vh) rotate(720deg);
-    }
-}
-
-/* =========================================
-   5. BOUTON MUSIQUE (Translucide en bas à droite)
-   ========================================= */
-.music-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 10001;
-    background: rgba(10, 10, 10, 0.6);
-    color: #fff;
-    padding: 10px 15px;
-    border-radius: 30px;
-    backdrop-filter: blur(5px);
-}
-
-.music-btn.playing {
-    border-color: var(--primary-gold);
-    box-shadow: 0 0 15px var(--gold-glow);
-}
-
-.music-btn.hidden { display: none; } /* Caché au début */
-
-/* =========================================
-   6. RESPONSIVE DESIGN (Adaptation Mobile)
-   ========================================= */
-@media (max-width: 768px) {
-    .fete-prenom { font-size: 3rem; letter-spacing: 3px; }
-    .invitation-container { margin: 10px; border-radius: 10px; }
-    .time-box { min-width: 100px; padding: 20px; }
-    .time-box span { font-size: 3rem; }
 }
