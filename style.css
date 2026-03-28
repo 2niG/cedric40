@@ -227,27 +227,26 @@ body::before {
 }
 
 /* =========================================
-   BOUTON RSVP TRANSPARENT
+   BOUTON RSVP TRANSPARENT (POLICE NOIRE)
    ========================================= */
 .btn-rsvp {
   display: inline-block;
-  /* ROUGE TRANSPARENT (80% d'opacité) */
   background: rgba(196, 30, 30, 0.3); 
-  color: #fff;
+  color: #000; /* PASSÉ EN NOIR ICI */
   padding: 15px 35px;
   text-decoration: none;
   border-radius: 50px;
   font-weight: 700;
   margin-top: 30px;
-  /* OMBRE PLUS LÉGÈRE */
   box-shadow: 0 5px 20px rgba(196, 30, 30, 0.3);
   transition: 0.3s;
-  backdrop-filter: blur(3px); /* Effet verre sur le bouton */
+  backdrop-filter: blur(3px);
 }
 
 .btn-rsvp:hover { 
   transform: scale(1.05); 
-  background: rgba(26, 69, 107, 0.9); /* Devient bleu transparent au survol */
+  background: rgba(26, 69, 107, 0.9);
+  color: #fff; /* Le texte repasse en blanc au survol car le fond devient bleu foncé */
 }
 
 /* =========================================
