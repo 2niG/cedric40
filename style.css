@@ -182,12 +182,13 @@ body::before {
 }
 
 /* =========================================
-   4. COMPTEUR RÉDUIT (CARRÉS PLUS PETITS)
+   4. COMPTEUR RÉDUIT
    ========================================= */
 #countdown-reserve-section {
   position: relative;
   padding: 60px 20px;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url('fond-bas.png');
+  /* On garde le voile blanc par dessus l'image */
+  background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url('fond-bas.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -197,26 +198,23 @@ body::before {
 #countdown { 
   display: flex; 
   justify-content: center; 
-  gap: 10px; /* Espace réduit entre les carrés */
+  gap: 10px; 
   margin: 0 auto; 
 }
 
 .time-box {
   background: rgba(255, 255, 255, 0.85);
-  padding: 10px 5px; /* Moins de hauteur et largeur interne */
+  padding: 10px 5px;
   border-radius: 8px;
-  
-  /* FORCE LA LARGEUR RÉDUITE ICI */
-  width: 70px;  /* Largeur fixe des carrés */
-  flex: none;   /* Empêche les carrés de s'étirer */
-  
+  width: 70px;
+  flex: none;
   border: 1px solid var(--sky-blue);
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .time-box span { 
   font-family: var(--font-title); 
-  font-size: 1.8rem; /* Chiffres plus petits */
+  font-size: 1.8rem;
   color: #c41e1e; 
   display: block; 
   line-height: 1.2;
@@ -225,7 +223,7 @@ body::before {
 .time-box p { 
   color: #666; 
   margin: 0; 
-  font-size: 0.75rem; /* Texte "Jours", "Heures" plus petit */
+  font-size: 0.75rem;
   text-transform: uppercase;
 }
 
@@ -257,11 +255,20 @@ body::before {
 }
 
 /* =========================================
-   6. RESPONSIVE
+   6. RESPONSIVE (CORRECTIF FOND MOBILE ICI)
    ========================================= */
 @media (max-width: 768px) {
   .fete-prenom { font-size: 3rem; }
   .ligne-titre { font-size: 2rem; }
-  .time-box { width: 60px; } /* Encore plus petit sur téléphone */
+  .time-box { width: 60px; }
   .time-box span { font-size: 1.5rem; }
+
+  /* Correction de l'image de fond pour téléphone */
+  #countdown-reserve-section { 
+    padding: 40px 10px; 
+    /* Force l'image à se répéter ou se centrer sans zoom excessif */
+    background-attachment: scroll; 
+    background-size: 100% auto; /* L'image prend 100% de la largeur, hauteur auto */
+    background-position: bottom center; /* On l'aligne en bas */
+  }
 }
