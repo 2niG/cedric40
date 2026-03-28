@@ -187,7 +187,6 @@ body::before {
 #countdown-reserve-section {
   position: relative;
   padding: 60px 20px;
-  /* On garde le voile blanc par dessus l'image */
   background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url('fond-bas.png');
   background-size: cover;
   background-position: center;
@@ -227,17 +226,28 @@ body::before {
   text-transform: uppercase;
 }
 
+/* =========================================
+   BOUTON RSVP TRANSPARENT
+   ========================================= */
 .btn-rsvp {
   display: inline-block;
-  background: #c41e1e;
+  /* ROUGE TRANSPARENT (80% d'opacité) */
+  background: rgba(196, 30, 30, 0.8); 
   color: #fff;
   padding: 15px 35px;
   text-decoration: none;
   border-radius: 50px;
   font-weight: 700;
   margin-top: 30px;
-  box-shadow: 0 5px 20px rgba(196, 30, 30, 0.4);
+  /* OMBRE PLUS LÉGÈRE */
+  box-shadow: 0 5px 20px rgba(196, 30, 30, 0.3);
   transition: 0.3s;
+  backdrop-filter: blur(3px); /* Effet verre sur le bouton */
+}
+
+.btn-rsvp:hover { 
+  transform: scale(1.05); 
+  background: rgba(26, 69, 107, 0.9); /* Devient bleu transparent au survol */
 }
 
 /* =========================================
@@ -255,7 +265,7 @@ body::before {
 }
 
 /* =========================================
-   6. RESPONSIVE (CORRECTIF FOND MOBILE ICI)
+   6. RESPONSIVE
    ========================================= */
 @media (max-width: 768px) {
   .fete-prenom { font-size: 3rem; }
@@ -263,12 +273,10 @@ body::before {
   .time-box { width: 60px; }
   .time-box span { font-size: 1.5rem; }
 
-  /* Correction de l'image de fond pour téléphone */
   #countdown-reserve-section { 
     padding: 40px 10px; 
-    /* Force l'image à se répéter ou se centrer sans zoom excessif */
     background-attachment: scroll; 
-    background-size: 100% auto; /* L'image prend 100% de la largeur, hauteur auto */
-    background-position: bottom center; /* On l'aligne en bas */
+    background-size: 100% auto;
+    background-position: bottom center;
   }
 }
