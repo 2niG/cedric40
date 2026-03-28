@@ -14,7 +14,6 @@
 
 body {
   font-family: var(--font-body);
-  /* FOND NATURE : Dégradé Ciel vers Herbe */
   background: linear-gradient(to bottom, var(--sky-blue) 0%, #f0f8ff 50%, var(--grass-green) 100%);
   background-attachment: fixed;
   color: #333;
@@ -23,7 +22,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Texture Nuages légère en fond */
 body::before {
   content: "";
   position: fixed;
@@ -34,7 +32,7 @@ body::before {
 }
 
 /* =========================================
-   2. LE RIDEAU (STYLE SPÉCIFIQUE)
+   2. LE RIDEAU
    ========================================= */
 #overlay {
   position: fixed;
@@ -63,7 +61,6 @@ body::before {
   line-height: 1;
   margin: 0;
   padding-right: 15px;
-  overflow: visible;
   background: linear-gradient(to bottom, #ffffff 20%, #c6a361 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -98,7 +95,7 @@ body::before {
 }
 
 /* =========================================
-   3. PAGE PRINCIPALE (INVITATION)
+   3. PAGE PRINCIPALE
    ========================================= */
 .invitation-container {
   max-width: 900px;
@@ -108,12 +105,10 @@ body::before {
   border-radius: 20px;
   padding-bottom: 30px;
   transition: opacity 1s ease;
-  overflow: hidden; /* Pour que le fond du bas ne dépasse pas des arrondis */
+  overflow: hidden;
 }
 
-.invitation-container.hidden {
-  display: none;
-}
+.invitation-container.hidden { display: none; }
 
 .invitation-img {
   width: 100%;
@@ -121,11 +116,7 @@ body::before {
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 }
 
-/* TITRES SOUS BANDEAU BLEU */
-.titres-invitation {
-  margin-top: 20px;
-  margin-bottom: 15px;
-}
+.titres-invitation { margin-top: 20px; margin-bottom: 15px; }
 
 .ligne-titre {
   font-family: "Bangers", cursive !important;
@@ -138,7 +129,6 @@ body::before {
 .chiffre-bleu { color: #1a456b; }
 .nom-rouge { color: #c41e1e; }
 
-/* BANDEAU BLEU */
 .bandeau-anniversaire {
   position: relative;
   background: #2b82c9;
@@ -161,11 +151,9 @@ body::before {
   border: 25px solid transparent;
   z-index: -1;
 }
-
 .bandeau-anniversaire::before { left: -40px; border-right-color: #1a5c91; border-left: none; }
 .bandeau-anniversaire::after { right: -40px; border-left-color: #1a5c91; border-right: none; }
 
-/* BANDEAU SABLE (CARRIÈRE) */
 .bandeau-bois {
   background-color: #e3d3b4;
   background-image: radial-gradient(circle at 2px 2px, rgba(0, 0, 0, 0.05) 1px, transparent 0);
@@ -179,14 +167,13 @@ body::before {
   align-items: center;
   position: relative;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  z-index: 3; /* Passe au dessus du fond du bas */
+  z-index: 3;
 }
 
 .info-texte { flex: 1; z-index: 2; }
 .date-fete, .heure-fete { color: #b33a24; font-family: var(--font-title); font-weight: 800; font-size: 1.8rem; text-transform: uppercase; }
 .lieu-fete { color: #4a4a4a; font-family: var(--font-title); font-weight: 700; font-size: 1.3rem; text-transform: uppercase; }
 
-/* IMAGES SWITCH ET HALTÈRE */
 .deco-icon .switch-photo, .deco-icon .haltere-photo {
   width: 180px;
   height: auto;
@@ -194,50 +181,59 @@ body::before {
   transition: transform 0.3s ease;
 }
 
-.deco-icon .switch-photo:hover { transform: scale(1.1) rotate(-5deg); }
-.deco-icon .haltere-photo:hover { transform: scale(1.1) rotate(5deg); }
-
 /* =========================================
-   4. COMPTEUR ET RÉSERVATION AVEC FOND PHOTO
+   4. COMPTEUR RÉDUIT (CARRÉS PLUS PETITS)
    ========================================= */
 #countdown-reserve-section {
   position: relative;
   padding: 60px 20px;
-  /* L'IMAGE DE FOND DU BAS */
-  background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url('fond-bas.png');
+  background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url('fond-bas.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 0 0 20px 20px;
 }
 
-#countdown-container h2 {
-  font-family: var(--font-title);
-  margin: 0 0 30px;
-  color: #1a456b;
-  text-transform: uppercase;
-  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+#countdown { 
+  display: flex; 
+  justify-content: center; 
+  gap: 10px; /* Espace réduit entre les carrés */
+  margin: 0 auto; 
 }
-
-#countdown { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
 
 .time-box {
-  background: rgba(255, 255, 255, 0.9);
-  padding: 20px;
-  border-radius: 10px;
-  min-width: 100px;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 10px 5px; /* Moins de hauteur et largeur interne */
+  border-radius: 8px;
+  
+  /* FORCE LA LARGEUR RÉDUITE ICI */
+  width: 70px;  /* Largeur fixe des carrés */
+  flex: none;   /* Empêche les carrés de s'étirer */
+  
   border: 1px solid var(--sky-blue);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.time-box span { font-family: var(--font-title); font-size: 3rem; color: #c41e1e; display: block; }
-.time-box p { color: #666; margin: 0; }
+.time-box span { 
+  font-family: var(--font-title); 
+  font-size: 1.8rem; /* Chiffres plus petits */
+  color: #c41e1e; 
+  display: block; 
+  line-height: 1.2;
+}
+
+.time-box p { 
+  color: #666; 
+  margin: 0; 
+  font-size: 0.75rem; /* Texte "Jours", "Heures" plus petit */
+  text-transform: uppercase;
+}
 
 .btn-rsvp {
   display: inline-block;
   background: #c41e1e;
   color: #fff;
-  padding: 18px 40px;
+  padding: 15px 35px;
   text-decoration: none;
   border-radius: 50px;
   font-weight: 700;
@@ -245,8 +241,6 @@ body::before {
   box-shadow: 0 5px 20px rgba(196, 30, 30, 0.4);
   transition: 0.3s;
 }
-
-.btn-rsvp:hover { transform: scale(1.05); background: #1a456b; }
 
 /* =========================================
    5. ANIMATIONS ET MUSIQUE
@@ -268,10 +262,6 @@ body::before {
 @media (max-width: 768px) {
   .fete-prenom { font-size: 3rem; }
   .ligne-titre { font-size: 2rem; }
-  .bandeau-anniversaire { font-size: 1.2rem; padding: 10px 20px; }
-  .bandeau-bois { flex-direction: column; gap: 15px; }
-  .deco-icon .switch-photo, .deco-icon .haltere-photo { width: 120px; }
-  .time-box { min-width: 70px; padding: 10px; }
-  .time-box span { font-size: 1.8rem; }
-  #countdown-reserve-section { padding: 40px 10px; }
+  .time-box { width: 60px; } /* Encore plus petit sur téléphone */
+  .time-box span { font-size: 1.5rem; }
 }
