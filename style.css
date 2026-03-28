@@ -17,7 +17,7 @@ body {
   /* FOND NATURE : Dégradé Ciel vers Herbe */
   background: linear-gradient(to bottom, var(--sky-blue) 0%, #f0f8ff 50%, var(--grass-green) 100%);
   background-attachment: fixed;
-  color: #333; /* Texte foncé pour lisibilité sur fond clair */
+  color: #333;
   margin: 0;
   text-align: center;
   overflow-x: hidden;
@@ -103,11 +103,12 @@ body::before {
 .invitation-container {
   max-width: 900px;
   margin: 20px auto;
-  background: rgba(255, 255, 255, 0.3); /* Effet verre pour détacher du fond */
+  background: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(5px);
   border-radius: 20px;
   padding-bottom: 30px;
   transition: opacity 1s ease;
+  overflow: hidden; /* Pour que le fond du bas ne dépasse pas des arrondis */
 }
 
 .invitation-container.hidden {
@@ -178,7 +179,7 @@ body::before {
   align-items: center;
   position: relative;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  border-radius: 0 0 15px 15px;
+  z-index: 3; /* Passe au dessus du fond du bas */
 }
 
 .info-texte { flex: 1; z-index: 2; }
@@ -187,7 +188,7 @@ body::before {
 
 /* IMAGES SWITCH ET HALTÈRE */
 .deco-icon .switch-photo, .deco-icon .haltere-photo {
-  width: 180px; /* Taille optimisée */
+  width: 180px;
   height: auto;
   filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3));
   transition: transform 0.3s ease;
@@ -197,13 +198,25 @@ body::before {
 .deco-icon .haltere-photo:hover { transform: scale(1.1) rotate(5deg); }
 
 /* =========================================
-   4. COMPTEUR ET BOUTON RSVP
+   4. COMPTEUR ET RÉSERVATION AVEC FOND PHOTO
    ========================================= */
+#countdown-reserve-section {
+  position: relative;
+  padding: 60px 20px;
+  /* L'IMAGE DE FOND DU BAS */
+  background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url('fond-bas.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 0 0 20px 20px;
+}
+
 #countdown-container h2 {
   font-family: var(--font-title);
-  margin: 50px 0 30px;
+  margin: 0 0 30px;
   color: #1a456b;
   text-transform: uppercase;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
 }
 
 #countdown { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
@@ -260,4 +273,5 @@ body::before {
   .deco-icon .switch-photo, .deco-icon .haltere-photo { width: 120px; }
   .time-box { min-width: 70px; padding: 10px; }
   .time-box span { font-size: 1.8rem; }
+  #countdown-reserve-section { padding: 40px 10px; }
 }
