@@ -232,7 +232,7 @@ body::before {
 .btn-rsvp {
   display: inline-block;
   /* ROUGE TRANSPARENT (80% d'opacité) */
-  background: rgba(196, 30, 30, 0.8); 
+  background: rgba(196, 30, 30, 0.6); 
   color: #fff;
   padding: 15px 35px;
   text-decoration: none;
